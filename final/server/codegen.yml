@@ -1,9 +1,9 @@
-schema: schema.graphql
+schema: src/schema.ts
 generates:
-  types.ts:
+  src/types.ts:
     plugins:
       - "@graphql-codegen/typescript"
       - "@graphql-codegen/typescript-resolvers"
     config:
       mappers:
-        Track: ./models#TrackModel
+        Track: ./src/models#TrackModel

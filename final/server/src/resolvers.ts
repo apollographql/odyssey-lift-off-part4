@@ -1,4 +1,4 @@
-import { Resolvers } from '../types'
+import { Resolvers } from './types'
 import { TrackAPI } from './datasources/track-api'
 
 interface TracksContext {

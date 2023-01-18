@@ -2,6 +2,7 @@ import React from 'react';
 import '@apollo/space-kit/reset.css';
 import { colors as SKColors } from '@apollo/space-kit/colors';
 import { Global } from '@emotion/core';
+import { stringify } from 'querystring';
 
 const breakpoints = [480, 768, 992, 1200];
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
@@ -17,7 +18,6 @@ export const colors = {
   secondary: SKColors.teal.base,
   accent: SKColors.pink.base,
   background: SKColors.silver.light,
-  grey: SKColors.silver.dark,
   text: SKColors.black.base,
   textSecondary: SKColors.grey.dark,
   ...SKColors,

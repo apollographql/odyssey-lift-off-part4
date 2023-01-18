@@ -68,3 +68,4 @@ export const typeDefs = gql `
     videoUrl: String
   }
 `;
+export default typeDefs;

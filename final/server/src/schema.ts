@@ -70,3 +70,5 @@ export const typeDefs = gql`
   }
 `;
 
+export default typeDefs
+

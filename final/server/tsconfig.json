@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "rootDirs": ["src"],
-    "outDir": "dist",
+    "rootDir": "src",
+    "outDir": "dist/src",
     "target": "es2020",
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -10,5 +10,6 @@
     // "baseUrl": ".",
     // "lib": ["es2020"],
     //  "types": ["node"]
-  }
+  },
+  "exclude": ["src/types.ts"]
 }
