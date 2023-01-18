@@ -1,6 +1,5 @@
-const gql = require('graphql-tag');
-
-const typeDefs = gql`
+import gql from 'graphql-tag';
+export const typeDefs = gql `
   type Query {
     "Query to get tracks array for the homepage grid"
     tracksForHome: [Track!]!
@@ -69,5 +68,3 @@ const typeDefs = gql`
     videoUrl: String
   }
 `;
-
-module.exports = typeDefs;
