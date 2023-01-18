@@ -1,4 +1,13 @@
-export const resolvers = {
+import { Resolvers } from '../types'
+import { TrackAPI } from './datasources/track-api'
+
+interface TracksContext {
+  dataSources: {
+    trackAPI: TrackAPI
+  }
+}
+
+export const resolvers: Resolvers<TracksContext> = {
   Query: {
     // returns an array of Tracks that will be used to populate the homepage grid of our web client
     tracksForHome: (_, __, { dataSources }) => {
@@ -37,7 +46,7 @@ export const resolvers = {
     },
   },
   Track: {
-    author: ({ authorId }, _, { dataSources }) => {
+    author: ({authorId}, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
 

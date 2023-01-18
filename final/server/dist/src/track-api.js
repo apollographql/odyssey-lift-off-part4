@@ -24,4 +24,3 @@ export class TrackAPI extends RESTDataSource {
         return this.patch(`track/${trackId}/numberOfViews`);
     }
 }
-// module.exports = TrackAPIExport;

@@ -11,25 +11,23 @@ export class TrackAPI extends RESTDataSource {
     return this.get('tracks');
   }
 
-  getAuthor(authorId) {
+  getAuthor(authorId: string) {
     return this.get(`author/${authorId}`);
   }
 
-  getTrack(trackId) {
+  getTrack(trackId: string) {
     return this.get(`track/${trackId}`);
   }
 
-  getTrackModules(trackId) {
+  getTrackModules(trackId: string) {
     return this.get(`track/${trackId}/modules`);
   }
 
-  getModule(moduleId) {
+  getModule(moduleId: string) {
     return this.get(`module/${moduleId}`);
   }
 
-  incrementTrackViews(trackId) {
+  incrementTrackViews(trackId: string) {
     return this.patch(`track/${trackId}/numberOfViews`);
   }
 }
-
-// module.exports = TrackAPIExport;
