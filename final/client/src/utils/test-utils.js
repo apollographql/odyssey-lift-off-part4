@@ -1,9 +1,27 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { MockedProvider } from '@apollo/client/testing';
+import { MockedProvider, MockedResponse } from '@apollo/client/testing';
+import { ApolloCache } from '@apollo/client';
 
-// if i make this a ts file it freaks out
+// const renderApollo = (
+//   node: React.ReactElement,
+//   { mocks, addTypename, defaultOptions, cache, resolvers, ...options }: { mocks: MockedResponse<Record<string, any>>[], addTypename?: boolean, defaultOptions?: {}, cache?: ApolloCache<{}>, resolvers?: {}}
+// ) => {
+//   console.log({ mocks: mocks[0].result.data.tracksForHome })
+//   return render(
+//     <MockedProvider
+//       mocks={mocks}
+//       addTypename={addTypename}
+//       defaultOptions={defaultOptions}
+//       cache={cache}
+//       resolvers={resolvers}
+//     >
+//       {node}
+//     </MockedProvider>,
+//     options
+//   );
+// };
 
 const renderApollo = (
   node,

@@ -8,7 +8,8 @@ import { PropsWithChildren } from 'react'
 interface QueryResultProps {
   loading: boolean;
   error?: ApolloError | undefined;
-  data?: QueryResultData | undefined,
+  // Originally was queryResultData but not sure how to type this to account for all the diff types of data that can be returned??
+  data?: any,
 }
 /**
  * Query Results conditionally renders Apollo useQuery hooks states:

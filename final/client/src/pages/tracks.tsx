@@ -8,7 +8,7 @@ import { RouteComponentProps } from "@reach/router";
 
 
 /** TRACKS gql query to retrieve all tracks */
-const TRACKS = graphql(`
+export const TRACKS = graphql(`
   query getTracks {
     tracksForHome {
       id
@@ -16,7 +16,12 @@ const TRACKS = graphql(`
       thumbnail
       length
       modulesCount
+      modules {
+        id
+        title
+      }
       author {
+        id
         name
         photo
       }
@@ -30,6 +35,8 @@ const TRACKS = graphql(`
  */
 const Tracks = (_: RouteComponentProps) => {
   const { loading, error, data } = useQuery(TRACKS);
+  console.log('mounted')
+  console.log({ data, loading })
 
   return (
     <Layout grid>

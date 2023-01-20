@@ -39,8 +39,6 @@ const TrackCard = ({ track }: { track: Track}) => {
     },
   });
 
-  console.log(" on trackcard")
-
   return (
     /* @ts-ignore */ 
     <CardContainer to={`/track/${id}`} onClick={incrementTrackViews}>

@@ -9,10 +9,12 @@ const mockTrackCardData = {
     'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
   length: 2377,
   author: {
+    id: '1',
     name: 'Henri, le Chat Noir',
     photo:
       'https://images.unsplash.com/photo-1442291928580-fb5d0856a8f1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
   },
+  modules: []
 };
 
 describe('Track Card', () => {
@@ -20,7 +22,7 @@ describe('Track Card', () => {
   afterEach(cleanup);
 
   it('renders track Card', async () => {
-    const mocks = [];
+    const mocks: any[] = [];
     const { getByText } = await renderApollo(
       <TrackCard track={mockTrackCardData} />,
       {
