@@ -6,8 +6,8 @@ import ReactMarkdown from 'react-markdown';
 /**
  * Markdown component is a simple style wrapper for markdown content used across our app
  */
-const MarkDown = ({ content }: { content: string}) => {
-  return <StyledMarkdown children={content} />;
+const MarkDown = ({ content }: { content: string | undefined | null}) => {
+  return <StyledMarkdown children={content || ''} />;
 };
 
 export default MarkDown;

@@ -1,13 +1,14 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+import { graphql } from '../gql'
+import type { Track } from '../gql/graphql'
 import TrackCard from '../containers/track-card';
 import { Layout, QueryResult } from '../components';
 import { RouteComponentProps } from "@reach/router";
-import type { Track } from '../components/track-detail'
 
 
-/** TRACKS gql query to retreive all tracks */
-const TRACKS = gql`
+/** TRACKS gql query to retrieve all tracks */
+const TRACKS = graphql(`
   query getTracks {
     tracksForHome {
       id
@@ -21,7 +22,7 @@ const TRACKS = gql`
       }
     }
   }
-`;
+`);
 
 /**
  * Tracks Page is the Catstronauts home page.

@@ -3,13 +3,14 @@ import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
 import { Link } from '@reach/router';
-import { gql, useMutation } from '@apollo/client';
-import type { Track } from '../components/track-detail'
+import { useMutation } from '@apollo/client';
+import { graphql } from '../gql'
+import type { Track } from '../gql/graphql'
 
 /**
  * Mutation to increment a track's number of views
  */
-const INCREMENT_TRACK_VIEWS = gql`
+const INCREMENT_TRACK_VIEWS = graphql(`
   mutation IncrementTrackViewsMutation($incrementTrackViewsId: ID!) {
     incrementTrackViews(id: $incrementTrackViewsId) {
       code
@@ -21,13 +22,13 @@ const INCREMENT_TRACK_VIEWS = gql`
       }
     }
   }
-`;
+`);
 
 /**
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
-const TrackCard = ({ track }: { track: Track }) => {
+const TrackCard = ({ track }: { track: Track}) => {
   const { title, thumbnail, author, length, modulesCount, id } = track;
 
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
@@ -38,21 +39,23 @@ const TrackCard = ({ track }: { track: Track }) => {
     },
   });
 
+  console.log(" on trackcard")
+
   return (
-    // @ts-ignore
+    /* @ts-ignore */ 
     <CardContainer to={`/track/${id}`} onClick={incrementTrackViews}>
       <CardContent>
         <CardImageContainer>
-          <CardImage src={thumbnail} alt={title} />
+          <CardImage src={thumbnail || ''} alt={title} />
         </CardImageContainer>
         <CardBody>
           <CardTitle>{title || ''}</CardTitle>
           <CardFooter>
-            <AuthorImage src={author.photo} />
+            <AuthorImage src={author.photo || ''} />
             <AuthorAndTrack>
               <AuthorName>{author.name}</AuthorName>
               <TrackLength>
-                {modulesCount} modules - {humanReadableTimeFromSeconds(length)}
+                {modulesCount} modules - {humanReadableTimeFromSeconds(length || 0)}
               </TrackLength>
             </AuthorAndTrack>
           </CardFooter>

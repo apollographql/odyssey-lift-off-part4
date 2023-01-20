@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import type { Module } from './module-detail'
-import type { Track } from './track-detail'
+import type { Module, Track } from '../gql/graphql'
 
 /**
  * Module Navigation: displays a list of modules titles
@@ -30,7 +29,7 @@ const ModulesNav = ({ module, track }: { module: Module, track: Track }) => {
                     <IconArrowRight width="14px" weight="thin" />
                   )}
                   <div>{navModule.title}</div>
-                  <div>{humanReadableTimeFromSeconds(navModule.length)}</div>
+                  <div>{navModule.length && humanReadableTimeFromSeconds(navModule.length)}</div>
                 </ModuleListItemContent>
               </ModuleNavStyledLink>
             </div>

@@ -12,40 +12,28 @@ import { humanReadableTimeFromSeconds } from '../utils/helpers';
 import { Link } from '@reach/router';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
-import type { Module } from './module-detail'
-
-export type Track = {
-  id: string;
-  title: string;
-  modules: Module[];
-  description: string;
-  thumbnail: string;
-  author: { photo: string; name: string };
-  length: number;
-  modulesCount: number;
-  numberOfViews: number;
-}
+import type { Track } from '../gql/graphql'
 
 /**
  * Track Detail component renders the main content of a given track:
  * author, length, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
-const TrackDetail = ({ track }: { track: Track }) => {
+const TrackDetail = ({ track }: { track: Track | undefined }) => {
   const {
     title,
     description,
     thumbnail,
-    author,
+    author = { photo: '', name: ''},
     length,
     modulesCount,
-    modules,
+    modules = [],
     numberOfViews,
-  } = track;
+  } = track || {};
 
   return (
     <ContentSection>
-      <CoverImage src={thumbnail} alt="" />
+      <CoverImage src={thumbnail || ''} alt="" />
       <TrackDetails>
         <DetailRow>
           <h1>{title}</h1>
@@ -63,12 +51,12 @@ const TrackDetail = ({ track }: { track: Track }) => {
             </IconAndLabel>
             <IconAndLabel>
               <IconTime width="14px" />
-              <div>{humanReadableTimeFromSeconds(length)}</div>
+              <div>{humanReadableTimeFromSeconds(length || 0)}</div>
             </IconAndLabel>
           </DetailItem>
           <DetailItem>
             <h4>Author</h4>
-            <AuthorImage src={author.photo} />
+            <AuthorImage src={author.photo || ''} />
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
@@ -91,7 +79,7 @@ const TrackDetail = ({ track }: { track: Track }) => {
                 <li key={module.title}>
                   <div>{module.title}</div>
                   <ModuleLength>
-                    {humanReadableTimeFromSeconds(module.length)}
+                    {humanReadableTimeFromSeconds(module.length || 0)}
                   </ModuleLength>
                 </li>
               ))}
