@@ -6,7 +6,7 @@ import { RouteComponentProps } from "@reach/router";
 import type { Track } from '../components/track-detail'
 
 
-/** TRACKS gql query to retreive all tracks */
+/** TRACKS gql query to retrieve all tracks */
 const TRACKS = gql`
   query getTracks {
     tracksForHome {
