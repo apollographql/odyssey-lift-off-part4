@@ -1,23 +1,48 @@
 import React from 'react';
 // this adds custom jest matchers from jest-dom
 import '@testing-library/jest-dom/extend-expect';
-import { InMemoryCache } from '@apollo/client';
-import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
-import Tracks, { TRACKS } from '../tracks';
+import { InMemoryCache, gql } from '@apollo/client';
+ import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
+import Tracks from '../tracks';
+
+const TRACKS = gql`
+  query getTracks {
+    tracksForHome {
+      id
+      title
+      thumbnail
+      length
+      modulesCount
+      modules {
+        id
+        title
+      }
+      author {
+        id
+        name
+        photo
+      }
+    }
+  }
+`;
 
 const mockTrack = {
   id: 'c_0',
-  title: 'Nap, the hard way',
+  title: 'space is hurd',
   thumbnail:
     'https://images.unsplash.com/photo-1542403810-74c578300013?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
   length: 1420,
   modulesCount: 6,
+  modules: [
+    { id: 'm_0', title: 'How to get good at space' },
+  ],
   author: {
+    id: 'cat-1',
     name: 'Cheshire Cat',
     photo:
       'https://images.unsplash.com/photo-1593627010886-d34828365da7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzA0OH0',
   },
-};
+}
 
 describe('Tracks Page', () => {
   afterEach(cleanup);
@@ -40,7 +65,7 @@ describe('Tracks Page', () => {
       cache,
     });
 
-    await waitForElement(() => getByText(/nap, the hard way/i));
+    await waitForElement(() => getByText(/space is hurd/i));
   });
 });
 

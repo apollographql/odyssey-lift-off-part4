@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 import { graphql } from '../gql'
 import type { Track } from '../gql/graphql'
 import TrackCard from '../containers/track-card';
@@ -8,7 +8,7 @@ import { RouteComponentProps } from "@reach/router";
 
 
 /** TRACKS gql query to retrieve all tracks */
-export const TRACKS = graphql(`
+const TRACKS = graphql(`
   query getTracks {
     tracksForHome {
       id
@@ -35,8 +35,6 @@ export const TRACKS = graphql(`
  */
 const Tracks = (_: RouteComponentProps) => {
   const { loading, error, data } = useQuery(TRACKS);
-  console.log('mounted')
-  console.log({ data, loading })
 
   return (
     <Layout grid>

@@ -18,6 +18,7 @@ interface QueryResultProps {
 const QueryResult: React.FC<PropsWithChildren<QueryResultProps>> = ({ loading, error, data, children }): React.ReactElement<any, any> | null => {
 // const QueryResult = ({ loading, error, data, children }: { loading: boolean, error: ApolloError | undefined, data: QueryResultData | undefined }) => {
   if (error) {
+    console.log({ error })
     return <p>ERROR: {error.message}</p>;
   }
   if (loading) {
