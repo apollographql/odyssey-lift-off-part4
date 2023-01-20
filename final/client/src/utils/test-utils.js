@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { MockedProvider } from '@apollo/client/testing';
 
+// if i make this a ts file it freaks out
+
 const renderApollo = (
   node,
   { mocks, addTypename, defaultOptions, cache, resolvers, ...options }

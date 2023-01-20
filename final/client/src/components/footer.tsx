@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { colors, ApolloIcon } from '../styles';
-import { PropsWithChildren } from 'react'
 
 /**
  * Footer is useless component to make our app look a little closer to a real website!
  */
-const Footer: React.FC<PropsWithChildren> = ({ children }) => {
+const Footer: React.FC = () => {
   return (
     <FooterContainer>
       2021 ©{' '}
