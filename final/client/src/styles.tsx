@@ -2,7 +2,6 @@ import React from 'react';
 import '@apollo/space-kit/reset.css';
 import { colors as SKColors } from '@apollo/space-kit/colors';
 import { Global } from '@emotion/core';
-import { stringify } from 'querystring';
 
 const breakpoints = [480, 768, 992, 1200];
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
@@ -26,6 +25,8 @@ export const colors = {
 const GlobalStyles = () => (
   <Global
     styles={{
+      // commenting out until i can figure it out
+      // @ts-ignore
       [['html', 'body']]: {
         height: '100%',
       },
@@ -45,6 +46,8 @@ const GlobalStyles = () => (
       '*': {
         boxSizing: 'border-box',
       },
+      // commenting out until i can figure it out
+      // @ts-ignore
       [['h1', 'h2', 'h3', 'h4', 'h5', 'h6']]: {
         margin: 0,
         fontWeight: 600,

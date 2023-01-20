@@ -6,12 +6,21 @@ import ContentSection from './content-section';
 import ReactPlayer from 'react-player/youtube';
 import ModulesNav from './modules-navigation';
 import MarkDown from './md-content';
+import type { Track } from './track-detail'
+
+export type Module = {
+  id: string;
+  title: string;
+  length: number;
+  videoUrl: string;
+  content: string;
+}
 
 /**
  * Module Detail renders content of a given module:
  * Video player, modules navigation and markdown content
  */
-const ModuleDetail = ({ track, module }) => {
+const ModuleDetail = ({ track, module }: { track: Track, module: Module }) => {
   const { videoUrl, title, content } = module;
   const { width } = useWindowDimensions();
 
@@ -44,7 +53,7 @@ const TopSection = styled.div({
   borderBottom: `solid 1px ${colors.pink.base}`,
 });
 
-const TopContainer = styled.div(({ totalWidth }) => ({
+const TopContainer = styled.div(({ totalWidth }: { totalWidth: number }) => ({
   display: 'flex',
   flexDirection: 'row',
   alignSelf: 'center',

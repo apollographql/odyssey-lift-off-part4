@@ -3,12 +3,14 @@ import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import { colors, IconArrowRight, IconDoubleArrowRight } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
+import type { Module } from './module-detail'
+import type { Track } from './track-detail'
 
 /**
  * Module Navigation: displays a list of modules titles
  * from a track and navigates to the modules page
  */
-const ModulesNav = ({ module, track }) => {
+const ModulesNav = ({ module, track }: { module: Module, track: Track }) => {
   return (
     <ModulesNavContainer>
       <ModuleTitle>
@@ -54,6 +56,7 @@ const ModulesNavContainer = styled.div({
 
 const trackTitleHeight = 70;
 
+// @ts-ignore
 const ModuleTitle = styled.div({
   display: 'flex',
   position: 'sticky',
@@ -96,7 +99,8 @@ const ModuleNavStyledLink = styled(Link)({
   alignItems: 'center',
 });
 
-const ModuleListItemContent = styled.div((props) => ({
+
+const ModuleListItemContent = styled.div((props: { isActive: boolean }) => ({
   backgroundColor: props.isActive ? colors.black.base : colors.black.light,
   color: props.isActive ? colors.silver.lighter : colors.silver.darker,
   minHeight: 80,
@@ -107,6 +111,7 @@ const ModuleListItemContent = styled.div((props) => ({
   fontSize: '1.1em',
   flex: 1,
   ':hover': {
+    // @ts-ignore
     backgroundColor: props.isActive ? colors.black.dark : colors.black.base,
     color: 'white',
   },

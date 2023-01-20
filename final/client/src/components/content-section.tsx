@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren} from 'react';
 import styled from '@emotion/styled';
 import { widths, colors } from '../styles';
 
@@ -6,7 +6,7 @@ import { widths, colors } from '../styles';
  * Content Section component renders content (mainly text/mdown based)
  * for track and module details
  */
-const ContentSection = ({ children }) => {
+const ContentSection: React.FC<PropsWithChildren> = ({ children }) => {
   return <ContentDiv>{children}</ContentDiv>;
 };
 

@@ -3,6 +3,8 @@ import { useQuery, gql } from '@apollo/client';
 import TrackCard from '../containers/track-card';
 import { Layout, QueryResult } from '../components';
 import { RouteComponentProps } from "@reach/router";
+import type { Track } from '../components/track-detail'
+
 
 /** TRACKS gql query to retreive all tracks */
 const TRACKS = gql`
@@ -31,7 +33,7 @@ const Tracks = (_: RouteComponentProps) => {
   return (
     <Layout grid>
       <QueryResult error={error} loading={loading} data={data}>
-        {data?.tracksForHome?.map((track) => (
+        {data?.tracksForHome?.map((track: Track) => (
           <TrackCard key={track.id} track={track} />
         ))}
       </QueryResult>

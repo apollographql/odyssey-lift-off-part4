@@ -3,12 +3,13 @@ import { colors, widths } from '../styles';
 import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import logo from '../assets/space_cat_logo.png';
+import { PropsWithChildren } from 'react'
 
 /**
  * Header renders the top navigation
  * for this particular tutorial level, it only holds the home button
  */
-const Header = ({ children }) => {
+const Header: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <HeaderBar>
       <Container>

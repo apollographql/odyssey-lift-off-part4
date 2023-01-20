@@ -2,12 +2,17 @@ import React from 'react';
 import { Header, Footer } from '../components';
 import styled from '@emotion/styled';
 import { widths, unit } from '../styles';
+import { PropsWithChildren } from 'react'
 
+interface LayoutProps {
+  fullWidth?: boolean;
+  grid?: boolean;
+}
 /**
  * Layout renders the full page content:
  * with header, Page container and footer
  */
-const Layout = ({ fullWidth, children, grid }) => {
+const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({ fullWidth, children, grid }) => {
   return (
     <>
       <Header />
@@ -22,7 +27,9 @@ const Layout = ({ fullWidth, children, grid }) => {
 export default Layout;
 
 /** Layout styled components */
-const PageContainer = styled.div((props) => ({
+
+// @ts-ignore
+const PageContainer = styled.div((props: LayoutProps) => ({
   display: 'flex',
   justifyContent: props.grid ? 'center' : 'top',
   flexDirection: props.grid ? 'row' : 'column',
