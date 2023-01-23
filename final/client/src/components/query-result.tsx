@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { LoadingSpinner } from '@apollo/space-kit/Loaders/LoadingSpinner';
-import { ApolloError, QueryResult as QueryResultData } from '@apollo/client';
+import { ApolloError, /* QueryResult as QueryResultData */ } from '@apollo/client';
 import { PropsWithChildren } from 'react'
 
 
