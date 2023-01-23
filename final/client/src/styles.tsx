@@ -25,7 +25,7 @@ export const colors = {
 const GlobalStyles = () => (
   <Global
     styles={{
-      // commenting out until i can figure it out
+      // TODO HELP
       // @ts-ignore
       [['html', 'body']]: {
         height: '100%',
@@ -46,7 +46,7 @@ const GlobalStyles = () => (
       '*': {
         boxSizing: 'border-box',
       },
-      // commenting out until i can figure it out
+      // TODO HELP
       // @ts-ignore
       [['h1', 'h2', 'h3', 'h4', 'h5', 'h6']]: {
         margin: 0,

@@ -13,6 +13,7 @@ const MarkDown = ({ content }: { content: string | undefined | null}) => {
 export default MarkDown;
 
 /** Markdown styled components */
+// TODO HELP
 // @ts-ignore
 const StyledMarkdown = styled(ReactMarkdown)({
   color: colors.grey.darker,

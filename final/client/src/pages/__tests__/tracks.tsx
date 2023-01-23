@@ -65,7 +65,7 @@ describe('Tracks Page', () => {
       cache,
     });
 
-    await waitForElement(() => getByText(/Nap, the hard way/i));
+    await waitForElement(() => getByText(/nap, the hard way/i));
   });
 });
 

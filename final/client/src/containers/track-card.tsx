@@ -28,7 +28,7 @@ const INCREMENT_TRACK_VIEWS = graphql(`
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
-const TrackCard = ({ track }: { track: Track}) => {
+const TrackCard = ({ track }: { track: Track }) => {
   const { title, thumbnail, author, length, modulesCount, id } = track;
 
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
@@ -40,7 +40,7 @@ const TrackCard = ({ track }: { track: Track}) => {
   });
 
   return (
-    /* @ts-ignore */ 
+    /* @ts-ignore */ // TODO HELP
     <CardContainer to={`/track/${id}`} onClick={incrementTrackViews}>
       <CardContent>
         <CardImageContainer>
@@ -142,6 +142,7 @@ const CardBody = styled.div({
   justifyContent: 'space-around',
 });
 
+// TODO HELP
 // @ts-ignore
 const CardFooter = styled.div({
   display: 'flex',

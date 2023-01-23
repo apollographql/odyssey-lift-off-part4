@@ -19,7 +19,7 @@ import type { Track } from '../gql/graphql'
  * author, length, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
-const TrackDetail = ({ track }: { track: Track | undefined }) => {
+const TrackDetail = ({ track }: { track: Track }) => {
   const {
     title,
     description,
