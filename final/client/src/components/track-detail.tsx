@@ -12,14 +12,14 @@ import { humanReadableTimeFromSeconds } from '../utils/helpers';
 import { Link } from '@reach/router';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
-import type { Track } from '../gql/graphql'
+import type { Track } from '../__generated__/graphql'
 
 /**
  * Track Detail component renders the main content of a given track:
  * author, length, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
-const TrackDetail = ({ track }: { track: Track }) => {
+const TrackDetail = ({ track }: { track?: Track }) => {
   const {
     title,
     description,

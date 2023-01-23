@@ -1,14 +1,14 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import { graphql } from '../gql'
-import type { Track } from '../gql/graphql'
+import { useQuery } from '@apollo/client';
+import { gql } from '../__generated__'
+import type { Track } from '../__generated__/graphql'
 import TrackCard from '../containers/track-card';
 import { Layout, QueryResult } from '../components';
 import { RouteComponentProps } from "@reach/router";
 
 
 /** TRACKS gql query to retrieve all tracks */
-const TRACKS = graphql(`
+const TRACKS = gql(`
   query getTracks {
     tracksForHome {
       id

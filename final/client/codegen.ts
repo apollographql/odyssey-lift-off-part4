@@ -4,9 +4,12 @@ const config: CodegenConfig = {
   schema: 'http://localhost:4000',
   documents: ['src/**/*.tsx'],
   generates: {
-    './src/gql/': {
+    './src/__generated__/': {
       preset: 'client',
-      plugins: []
+      plugins: [],
+      presetConfig: {
+        gqlTagName: 'gql'
+      }
     }
   },
   ignoreNoDocuments: true,

@@ -4,13 +4,13 @@ import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
 import { Link } from '@reach/router';
 import { useMutation } from '@apollo/client';
-import { graphql } from '../gql'
-import type { Track } from '../gql/graphql'
+import { gql } from '../__generated__'
+import type { Track } from '../__generated__/graphql'
 
 /**
  * Mutation to increment a track's number of views
  */
-const INCREMENT_TRACK_VIEWS = graphql(`
+const INCREMENT_TRACK_VIEWS = gql(`
   mutation IncrementTrackViewsMutation($incrementTrackViewsId: ID!) {
     incrementTrackViews(id: $incrementTrackViewsId) {
       code

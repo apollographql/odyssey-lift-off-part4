@@ -6,7 +6,7 @@ import ContentSection from './content-section';
 import ReactPlayer from 'react-player/youtube';
 import ModulesNav from './modules-navigation';
 import MarkDown from './md-content';
-import type { Module, Track } from '../gql/graphql'
+import type { Module, Track } from '../__generated__/graphql'
 
 /**
  * Module Detail renders content of a given module:
