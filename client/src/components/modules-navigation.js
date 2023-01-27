@@ -20,7 +20,9 @@ const ModulesNav = ({ module, track }) => {
         {track.modules.map((navModule) => (
           <ModuleListItem key={`module_${navModule.id}`}>
             <div>
-              <ModuleNavStyledLink to={`/track/${track.id}/module/${navModule.id}`}>
+              <ModuleNavStyledLink
+                to={`/track/${track.id}/module/${navModule.id}`}
+              >
                 <ModuleListItemContent isActive={navModule.id === module.id}>
                   {navModule.id === module.id ? (
                     <IconDoubleArrowRight width="14px" />
