@@ -31,6 +31,7 @@ const INCREMENT_TRACK_VIEWS = gql(`
 const TrackCard = ({ track }: { track: Track }) => {
   const { title, thumbnail, author, length, modulesCount, id } = track;
 
+
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
     variables: { incrementTrackViewsId: id },
     // to observe what the mutation response returns
@@ -142,11 +143,10 @@ const CardBody = styled.div({
   justifyContent: 'space-around',
 });
 
-// TODO HELP
-// @ts-ignore
+
 const CardFooter = styled.div({
   display: 'flex',
-  flexDirection: 'Row',
+  flexDirection: 'row',
 });
 
 const AuthorImage = styled.img({

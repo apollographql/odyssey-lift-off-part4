@@ -31,14 +31,15 @@ const GET_TRACK = gql(`
   }
 `);
 
-interface Props {
+interface TrackProps {
   trackId: string;
 }
 /**
  * Track Page fetches a track's data from the gql query GET_TRACK
  * and provides it to the TrackDetail component to display
  */
-const Track = ({ trackId }: RouteComponentProps<Props>) => {
+const Track = ({ trackId = ''}: RouteComponentProps<TrackProps>) => {
+  console.log({ trackId })
   const { loading, error, data } = useQuery(GET_TRACK, {
     variables: { trackId },
   });

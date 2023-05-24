@@ -111,7 +111,6 @@ const ModuleListItemContent = styled.div((props: { isActive: boolean }) => ({
   fontSize: '1.1em',
   flex: 1,
   ':hover': {
-    // @ts-ignore
     backgroundColor: props.isActive ? colors.black.dark : colors.black.base,
     color: 'white',
   },

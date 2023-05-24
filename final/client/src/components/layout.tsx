@@ -27,18 +27,14 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({ fullWidth, children,
 export default Layout;
 
 /** Layout styled components */
-
-// TODO HELP
-// @ts-ignore
-const PageContainer = styled.div((props: LayoutProps) => ({
-  display: 'flex',
-  justifyContent: props.grid ? 'center' : 'top',
-  flexDirection: props.grid ? 'row' : 'column',
-  flexWrap: 'wrap',
-  alignSelf: 'center',
-  flexGrow: 1,
-  maxWidth: props.fullWidth ? null : `${widths.regularPageWidth}px`,
-  width: '100%',
-  padding: props.fullWidth ? 0 : unit * 2,
-  paddingBottom: unit * 5,
-}));
+const PageContainer = styled.div<LayoutProps>`
+  display: flex;
+  justify-content: ${({ grid }) => grid ? 'center' : 'top'};
+  flex-direction: ${({ grid }) => grid ? 'row' : 'column'};
+  flex-wrap: wrap;
+  flex-grow: 1;
+  max-width: ${({ fullWidth }) => fullWidth ? null : `${widths.regularPageWidth}px`};
+  width: '100%';
+  padding: ${({ fullWidth }) => fullWidth ? 0 : unit * 2};
+  padding-bottom: unit * 5;
+`;
