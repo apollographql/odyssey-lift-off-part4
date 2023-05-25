@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "tsc",
     "dev": "ts-node-dev src",
-    "start": "npm run compile && nodemon ./dist/src/index.js",
+    "start": "npm run compile && nodemon ./dist/index.js",
     "generate": "graphql-codegen"
   },
   "dependencies": {

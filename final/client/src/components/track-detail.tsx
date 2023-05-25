@@ -29,11 +29,11 @@ const TrackDetail = ({ track }: { track?: Track }) => {
     modulesCount,
     modules = [],
     numberOfViews,
-  } = track || {};
+  } = track ?? {};
 
   return (
     <ContentSection>
-      <CoverImage src={thumbnail || ''} alt="" />
+      <CoverImage src={thumbnail ?? ''} alt="" />
       <TrackDetails>
         <DetailRow>
           <h1>{title}</h1>
@@ -51,12 +51,12 @@ const TrackDetail = ({ track }: { track?: Track }) => {
             </IconAndLabel>
             <IconAndLabel>
               <IconTime width="14px" />
-              <div>{humanReadableTimeFromSeconds(length || 0)}</div>
+              <div>{humanReadableTimeFromSeconds(length ?? 0)}</div>
             </IconAndLabel>
           </DetailItem>
           <DetailItem>
             <h4>Author</h4>
-            <AuthorImage src={author.photo || ''} />
+            <AuthorImage src={author.photo ?? ''} />
             <AuthorName>{author.name}</AuthorName>
           </DetailItem>
           <div>
@@ -79,7 +79,7 @@ const TrackDetail = ({ track }: { track?: Track }) => {
                 <li key={module.title}>
                   <div>{module.title}</div>
                   <ModuleLength>
-                    {humanReadableTimeFromSeconds(module.length || 0)}
+                    {humanReadableTimeFromSeconds(module.length ?? 0)}
                   </ModuleLength>
                 </li>
               ))}

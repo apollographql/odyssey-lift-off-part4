@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { LoadingSpinner } from '@apollo/space-kit/Loaders/LoadingSpinner';
-import { ApolloError, /* QueryResult as QueryResultData */ } from '@apollo/client';
+import { ApolloError } from '@apollo/client';
 import { PropsWithChildren } from 'react'
 
 
 interface QueryResultProps {
   loading: boolean;
   error?: ApolloError | undefined;
-  // TODO HELP: Originally was queryResultData but not sure how to type this to account for all the diff types of data that can be returned??
-  data?: any,
+  data?: unknown,
 }
 /**
  * Query Results conditionally renders Apollo useQuery hooks states:

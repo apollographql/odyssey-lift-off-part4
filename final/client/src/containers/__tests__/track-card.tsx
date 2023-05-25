@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderApollo, cleanup, waitForElement } from '../../utils/test-utils';
+import { MockedResponse } from '@apollo/client/testing';
 import TrackCard from '../track-card';
 
 const mockTrackCardData = {
@@ -22,7 +23,7 @@ describe('Track Card', () => {
   afterEach(cleanup);
 
   it('renders track Card', async () => {
-    const mocks: any[] = [];
+    const mocks: MockedResponse<Record<string, any>>[] = [];
     const { getByText } = await renderApollo(
       <TrackCard track={mockTrackCardData} />,
       {

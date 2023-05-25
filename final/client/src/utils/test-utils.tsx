@@ -1,14 +1,19 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { MockedProvider, MockedResponse } from '@apollo/client/testing';
-import { ApolloCache } from '@apollo/client';
+import React, {ComponentProps} from "react";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import { MockedProvider } from "@apollo/client/testing";
 
 const renderApollo = (
   node: React.ReactElement,
-  { mocks, addTypename, defaultOptions, cache, resolvers, ...options }: { mocks: MockedResponse<Record<string, any>>[], addTypename?: boolean, defaultOptions?: {}, cache?: ApolloCache<{}>, resolvers?: {}}
+  {
+    mocks,
+    addTypename,
+    defaultOptions,
+    cache,
+    resolvers,
+    ...options
+  }: Pick<ComponentProps<typeof MockedProvider>, 'mocks' | 'addTypename' | 'defaultOptions' | 'cache' | 'resolvers'>
 ) => {
-  
   return render(
     <MockedProvider
       mocks={mocks}
@@ -23,5 +28,5 @@ const renderApollo = (
   );
 };
 
-export * from '@testing-library/react';
+export * from "@testing-library/react";
 export { renderApollo };

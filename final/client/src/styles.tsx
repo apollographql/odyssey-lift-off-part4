@@ -25,13 +25,12 @@ export const colors = {
 const GlobalStyles = () => (
   <Global
     styles={{
-      // TODO HELP
-      // @ts-ignore
-      [['html', 'body']]: {
+      html: {
         height: '100%',
       },
       body: {
         margin: 0,
+        height: '100%',
         padding: 0,
         fontFamily: "'Source Sans Pro', sans-serif",
         backgroundColor: colors.background,
@@ -46,9 +45,7 @@ const GlobalStyles = () => (
       '*': {
         boxSizing: 'border-box',
       },
-      // TODO HELP
-      // @ts-ignore
-      [['h1', 'h2', 'h3', 'h4', 'h5', 'h6']]: {
+      [['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join(',')]: {
         margin: 0,
         fontWeight: 600,
       },
