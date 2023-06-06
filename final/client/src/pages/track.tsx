@@ -39,7 +39,6 @@ interface TrackProps {
  * and provides it to the TrackDetail component to display
  */
 const Track = ({ trackId = ''}: RouteComponentProps<TrackProps>) => {
-  console.log({ trackId })
   const { loading, error, data } = useQuery(GET_TRACK, {
     variables: { trackId },
   });
