@@ -55,8 +55,6 @@ const ModulesNavContainer = styled.div({
 
 const trackTitleHeight = 70;
 
-// TODO HELP
-// @ts-ignore
 const ModuleTitle = styled.div({
   display: 'flex',
   position: 'sticky',

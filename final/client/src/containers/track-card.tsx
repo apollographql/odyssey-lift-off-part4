@@ -41,8 +41,7 @@ const TrackCard = ({ track }: { track: Track }) => {
   });
 
   return (
-    /* @ts-ignore */ // TODO HELP
-    <CardContainer to={`/track/${id}`} onClick={incrementTrackViews}>
+    <CardContainer to={`/track/${id}`} onClick={() => incrementTrackViews()}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail || ''} alt={title} />
