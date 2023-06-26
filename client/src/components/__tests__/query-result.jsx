@@ -18,7 +18,7 @@ describe('Query Result', () => {
   });
 
   it('renders Error', async () => {
-    const { getByText } = render(<QueryResult error={new Error('you lose')} />);
+    const { getByText } = render(<QueryResult loading={false} error={new ApolloError({ errorMessage: 'you lose' })} />);
     getByText(/you lose/i);
   });
 });

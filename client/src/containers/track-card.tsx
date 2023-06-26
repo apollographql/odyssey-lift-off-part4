@@ -3,28 +3,29 @@ import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
 import { humanReadableTimeFromSeconds } from '../utils/helpers';
 import { Link } from 'react-router-dom';
+import type { Track } from '../__generated__/graphql'
 
 /**
  * Track Card component renders basic info in a card format
  * for each track populating the tracks grid homepage.
  */
-const TrackCard = ({ track }) => {
+const TrackCard: React.FC<{ track: Omit<Track, "modules"> }> = ({ track }) => {
   const { title, thumbnail, author, length, modulesCount, id } = track;
 
   return (
     <CardContainer to={`/track/${id}`}>
       <CardContent>
         <CardImageContainer>
-          <CardImage src={thumbnail} alt={title} />
+          <CardImage src={thumbnail || ''} alt={title} />
         </CardImageContainer>
         <CardBody>
           <CardTitle>{title || ''}</CardTitle>
           <CardFooter>
-            <AuthorImage src={author.photo} />
+            <AuthorImage src={author.photo || ''} />
             <AuthorAndTrack>
               <AuthorName>{author.name}</AuthorName>
               <TrackLength>
-                {modulesCount} modules - {humanReadableTimeFromSeconds(length)}
+                {modulesCount} modules - {humanReadableTimeFromSeconds(length || 0)}
               </TrackLength>
             </AuthorAndTrack>
           </CardFooter>
@@ -115,7 +116,7 @@ const CardBody = styled.div({
 
 const CardFooter = styled.div({
   display: 'flex',
-  flexDirection: 'Row',
+  flexDirection: 'row',
 });
 
 const AuthorImage = styled.img({

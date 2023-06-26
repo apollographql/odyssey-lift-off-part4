@@ -8,7 +8,7 @@ import { humanReadableTimeFromSeconds } from '../utils/helpers';
  * Module Navigation: displays a list of modules titles
  * from a track and navigates to the modules page
  */
-const ModulesNav = ({ module, track }) => {
+const ModulesNav: React.FC<{module: any, track: any}> = ({ module, track }) => {
   return (
     <ModulesNavContainer>
       <ModuleTitle>
@@ -17,7 +17,7 @@ const ModulesNav = ({ module, track }) => {
         </h4>
       </ModuleTitle>
       <ModulesList>
-        {track.modules.map((navModule) => (
+        {track.modules.map((navModule: any) => (
           <ModuleListItem key={`module_${navModule.id}`}>
             <div>
               <ModuleNavStyledLink
@@ -98,7 +98,7 @@ const ModuleNavStyledLink = styled(Link)({
   alignItems: 'center',
 });
 
-const ModuleListItemContent = styled.div((props) => ({
+const ModuleListItemContent = styled.div((props: { isActive: boolean }) => ({
   backgroundColor: props.isActive ? colors.black.base : colors.black.light,
   color: props.isActive ? colors.silver.lighter : colors.silver.darker,
   minHeight: 80,
