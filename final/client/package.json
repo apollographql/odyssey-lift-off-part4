@@ -20,6 +20,7 @@
     "react-router-dom": "^6.7.0"
   },
   "scripts": {
+    "postinstall": "npm run generate",
     "test": "vitest",
     "start": "vite",
     "build": "vite build",
