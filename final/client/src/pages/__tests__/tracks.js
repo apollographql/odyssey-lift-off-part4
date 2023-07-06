@@ -3,7 +3,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { InMemoryCache } from '@apollo/client';
 import { renderApolloWithRouter, cleanup, waitForElement } from '../../utils/test-utils';
-import Tracks, { TRACKS }from '../tracks';
+import Tracks, { TRACKS } from '../tracks';
 
 const mockTrack = {
   id: 'c_0',
