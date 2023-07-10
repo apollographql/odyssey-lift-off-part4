@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import TrackCard from "../containers/track-card";
 
 /** TRACKS gql query to retrieve all tracks */
-const TRACKS = gql(`
+export const TRACKS = gql(`
   query GetTracks {
     tracksForHome {
       id
