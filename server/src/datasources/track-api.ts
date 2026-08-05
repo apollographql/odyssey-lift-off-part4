@@ -3,7 +3,7 @@ import { TrackModel, AuthorModel, ModuleModel } from "../models"
 
 export class TrackAPI extends RESTDataSource {
   // the Catstronauts catalog is hosted on this server
-  baseURL = "https://odyssey-lift-off-rest-api.herokuapp.com/";
+  baseURL = "https://catstronauts-api.up.railway.app/";
   
   getTracksForHome() {
     return this.get<TrackModel[]>("tracks");
