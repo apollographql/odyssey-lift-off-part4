@@ -33,14 +33,15 @@ const TrackCard: React.FC<{ track: Omit<Track, "modules"> }> = ({ track }) => {
 
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
     variables: { incrementTrackViewsId: id },
-    // to observe what the mutation response returns
-    onCompleted: (data) => {
-      console.log(data);
-    },
   });
 
+  const handleTrackClick = async () => {
+    const result = await incrementTrackViews();
+    console.log(result.data);
+  };
+
   return (
-    <CardContainer to={`/track/${id}`} onClick={() => incrementTrackViews()}>
+    <CardContainer to={`/track/${id}`} onClick={handleTrackClick}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail || ""} alt={title} />
