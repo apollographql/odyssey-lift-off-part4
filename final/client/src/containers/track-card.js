@@ -10,7 +10,7 @@ import { useMutation } from '@apollo/client/react';
  * Mutation to increment a track's number of views
  */
 const INCREMENT_TRACK_VIEWS = gql`
-  mutation IncrementTrackViewsMutation($incrementTrackViewsId: ID!) {
+  mutation IncrementTrackViews($incrementTrackViewsId: ID!) {
     incrementTrackViews(id: $incrementTrackViewsId) {
       code
       success
