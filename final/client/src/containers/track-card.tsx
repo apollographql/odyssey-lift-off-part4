@@ -4,7 +4,7 @@ import { colors, mq } from "../styles";
 import { humanReadableTimeFromSeconds } from "../utils/helpers";
 import { Link } from "react-router-dom";
 import type { Track } from "../__generated__/graphql";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client/react";
 import { gql } from "../__generated__";
 
 /**
