@@ -1,10 +1,10 @@
 import { RESTDataSource } from "@apollo/datasource-rest";
-import { TrackModel, AuthorModel, ModuleModel } from "../models"
+import { TrackModel, AuthorModel, ModuleModel } from "../models";
 
 export class TrackAPI extends RESTDataSource {
   // the Catstronauts catalog is hosted on this server
   baseURL = "https://catstronauts-api.up.railway.app/";
-  
+
   getTracksForHome() {
     return this.get<TrackModel[]>("tracks");
   }
@@ -20,7 +20,7 @@ export class TrackAPI extends RESTDataSource {
   getTrackModules(trackId: string) {
     return this.get<ModuleModel[]>(`track/${trackId}/modules`);
   }
-  
+
   getModule(moduleId: string) {
     return this.get<ModuleModel>(`module/${moduleId}`);
   }

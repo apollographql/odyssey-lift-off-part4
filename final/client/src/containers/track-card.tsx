@@ -144,8 +144,8 @@ const CardBody = styled.div({
 });
 
 const CardFooter = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
+  display: "flex",
+  flexDirection: "row",
 });
 
 const AuthorImage = styled.img({

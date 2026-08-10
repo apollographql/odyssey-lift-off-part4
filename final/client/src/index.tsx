@@ -10,7 +10,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const root = createRoot(document.getElementById('root')!);
+const root = createRoot(document.getElementById("root")!);
 
 root.render(
   <React.StrictMode>
@@ -18,5 +18,5 @@ root.render(
       <GlobalStyles />
       <Pages />
     </ApolloProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
