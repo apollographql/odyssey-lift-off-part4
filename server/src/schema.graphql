@@ -47,4 +47,8 @@ type Module {
   title: String!
   "The module's length, in minutes"
   length: Int
+  "The module's text content, which may include Markdown; for video modules, this is the enriched transcript"
+  content: String
+  "The URL of the module's video, when the module is video-based"
+  videoUrl: String
 }
