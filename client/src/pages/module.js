@@ -1,8 +1,8 @@
-import React from 'react';
-import { gql } from '@apollo/client';
-import { useQuery } from '@apollo/client/react';
-import { useParams } from 'react-router-dom';
-import { Layout, ModuleDetail, QueryResult } from '../components';
+import React from "react";
+import { gql } from "@apollo/client";
+import { useQuery } from "@apollo/client/react";
+import { useParams } from "react-router-dom";
+import { Layout, ModuleDetail, QueryResult } from "../components";
 
 /**
  * GET_MODULE_AND_PARENT_TRACK gql query to retrieve a specific module and its parent track,
