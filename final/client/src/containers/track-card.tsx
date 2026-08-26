@@ -4,7 +4,7 @@ import { colors, mq } from "../styles";
 import { humanReadableTimeFromSeconds } from "../utils/helpers";
 import { Link } from "react-router-dom";
 import type { Track } from "../__generated__/graphql";
-import { useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client/react";
 import { gql } from "../__generated__";
 
 /**
@@ -33,14 +33,15 @@ const TrackCard: React.FC<{ track: Omit<Track, "modules"> }> = ({ track }) => {
 
   const [incrementTrackViews] = useMutation(INCREMENT_TRACK_VIEWS, {
     variables: { incrementTrackViewsId: id },
-    // to observe what the mutation response returns
-    onCompleted: (data) => {
-      console.log(data);
-    },
   });
 
+  const handleTrackClick = async () => {
+    const result = await incrementTrackViews();
+    console.log(result.data);
+  };
+
   return (
-    <CardContainer to={`/track/${id}`} onClick={() => incrementTrackViews()}>
+    <CardContainer to={`/track/${id}`} onClick={handleTrackClick}>
       <CardContent>
         <CardImageContainer>
           <CardImage src={thumbnail || ""} alt={title} />
@@ -143,8 +144,8 @@ const CardBody = styled.div({
 });
 
 const CardFooter = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
+  display: "flex",
+  flexDirection: "row",
 });
 
 const AuthorImage = styled.img({
